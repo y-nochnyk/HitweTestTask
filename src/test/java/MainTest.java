@@ -12,7 +12,7 @@ public class MainTest extends WebDrivers {
         RegistrationPage registrationPage = new RegistrationPage(driver);
         registrationPage.chooseGirl();
         registrationPage.submitRegistrationFrom
-                (Credentials.getRandomString(), Credentials.getRandomString() + "@testmail.com");
+                (Credentials.getUsername(), Credentials.getEmail());
 
         UserPage userPage = new UserPage(driver);
         userPage.closeModalWindow();
