@@ -1,15 +1,17 @@
+import Pages.RegistrationPage;
+import Pages.UserPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
 import java.util.concurrent.TimeUnit;
 
-public class WebDrivers {
+public class TestStarter {
     static WebDriver driver;
-    static WebDriverWait wait;
+    static RegistrationPage registrationPage;
+    static UserPage userPage;
 
     @BeforeClass
     public static void setUp(){
@@ -25,6 +27,8 @@ public class WebDrivers {
             driver = new FirefoxDriver();
         }
 
+        registrationPage = new RegistrationPage(driver);
+        userPage = new UserPage(driver);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
     }

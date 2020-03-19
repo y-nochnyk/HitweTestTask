@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class RegistrationPage extends PageObject {
 
+    public static final String BASE_PAGE = "https://m.hitwe.com/landing/inter?p=15276";
     private WebDriverWait wait;
 
     @FindBy(xpath = "//*[@id='slide-01']/div/div/a")
@@ -54,7 +55,7 @@ public class RegistrationPage extends PageObject {
         bodyButton.click();
     }
 
-    public void submitRegistrationFrom(String username, String email){
+    public void submitRegistrationForm(String username, String email){
         WebElement formFieldName = wait.until(ExpectedConditions.elementToBeClickable(form_field_name));
         formFieldName.sendKeys(username);
         WebElement formFieldEmail = wait.until(ExpectedConditions.elementToBeClickable(form_field_email));

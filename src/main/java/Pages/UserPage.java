@@ -1,7 +1,6 @@
 package Pages;
-
+import Utils.Tools;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -9,7 +8,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
-import java.util.concurrent.TimeUnit;
 
 public class UserPage extends PageObject {
 
@@ -56,13 +54,7 @@ public class UserPage extends PageObject {
         WebElement element = wait.until
                 (ExpectedConditions.elementToBeClickable(By.cssSelector("#Dialog p:nth-child(1)")));
         add_photo_button.sendKeys(file.getAbsolutePath());
-
-        try {
-            TimeUnit.MILLISECONDS.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
+        Tools.waitSec();
         add_avatar_go_button.click();
     }
 

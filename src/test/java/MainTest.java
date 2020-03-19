@@ -1,23 +1,25 @@
-import Pages.RegistrationPage;
-import Pages.UserPage;
 import org.testng.annotations.Test;
 import static org.testng.Assert.*;
+import Pages.RegistrationPage;
 
-public class MainTest extends WebDrivers {
+public class MainTest extends TestStarter {
 
-    @Test
-    public void registrationTest(){
-        driver.get("https://m.hitwe.com/landing/inter?p=15276");
-
-        RegistrationPage registrationPage = new RegistrationPage(driver);
+    @Test (priority = 1)
+    public void doRegister(){
+        driver.get(RegistrationPage.BASE_PAGE);
         registrationPage.chooseGirl();
-        registrationPage.submitRegistrationFrom
+        registrationPage.submitRegistrationForm
                 (Credentials.getUsername(), Credentials.getEmail());
+    }
 
-        UserPage userPage = new UserPage(driver);
+    @Test (priority = 2)
+    public void verifyRegister(){
         userPage.closeModalWindow();
         assertEquals(userPage.getTitleHeading(), "Я", "WRONG USER PAGE HEADING TITLE:");
+    }
 
+    @Test (priority = 3)
+    public void uploadPhotoTest(){
         userPage.uploadAvatar();
         assertNotEquals
                 (userPage.getAvaPlaceholderClass(),
