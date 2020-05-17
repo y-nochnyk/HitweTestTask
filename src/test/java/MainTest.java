@@ -6,7 +6,7 @@ import static org.testng.Assert.*;
 public class MainTest extends WebDrivers {
 
     @Test
-    public void registrationTest(){
+    public void registrationAndAvatarUploadTest(){
         driver.get("https://m.hitwe.com/landing/inter?p=15276");
 
         RegistrationPage registrationPage = new RegistrationPage(driver);
