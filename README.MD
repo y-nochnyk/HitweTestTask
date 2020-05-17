@@ -1,4 +1,4 @@
-﻿# GenesisTestTask
+﻿# HitweTestTask
 ## Prerequisites
 * **JDK version >= 11.0.1**
 * **Apache Maven version >= 3.6.0**
